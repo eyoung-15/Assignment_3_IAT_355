@@ -1,0 +1,211 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0faff;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #8bd3fc;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Zalando Sans Expanded", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+}
+
+nav a:hover,
+nav a:focus {
+    text-decoration: none;
+    background: #4287f5;
+    cursor: pointer;
+}
+
+a:hover,
+a:focus {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.section {
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 1rem;
+}
+
+.about {
+    margin: 3rem auto;
+    /* padding: 0 1rem; */
+}
+
+footer {
+    background-color: #8bd3fc;
+    padding: 2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: black;
+    font-family: "Zalando Sans Expanded", sans-serif;
+    padding: 0 1rem;
+
+
+}
+
+h3 {
+    font-family: "Zalando Sans Expanded", sans-serif;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    color: black;
+    padding: 0 1rem;
+
+}
+
+h4 {
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    color: black;
+    padding: 0 1rem;
+
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: black;
+    padding: 0 1rem;
+
+}
+
+footer p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: white;
+}
+
+svg {
+    border: solid lightgrey;
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 1rem;
+}
+
+.vis-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.vis-text {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    margin-top: 7rem;
+}
+
+.website-project-img {
+    display: block;
+    margin: 0 auto;
+}
+
+.application-project-img {
+    display: block;
+    margin: 0 auto;
+}
+
+figure {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+img {
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+
+}
+
+button {
+    background-color: #4287f5;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover,
+button:focus {
+    background: #1e6ae3;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1068px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section {
+
+        padding: 1.5rem;
+    }
+
+    svg {
+        padding: 1.5rem;
+    }
+
+    .website-project-img,
+    .application-project-img {
+        width: 100%;
+    }
+
+    .vis-container {
+        padding: 0 1.5rem;
+    }
+
+
+}
