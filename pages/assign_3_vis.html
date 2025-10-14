@@ -3,21 +3,44 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAT 355 Assignment 3 Visualizations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IAT 355 Assignment 3 Visualizations</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=SUSE+Mono:ital,wght@0,100..800;1,100..800&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap"
-        rel="stylesheet">
+    <script>
+        const options = {
+            config: {
+                // Vega-Lite default configuration
+            },
+            init: (view) => {
+                // initialize tooltip handler
+                view.tooltip(new vegaTooltip.Handler().call);
+            },
+            view: {
+                // view constructor options
+                // remove the loader if you don't want to default to vega-datasets!
+                loader: vega.loader({
+                    baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+                }),
+                renderer: "canvas",
+            },
+        };
+
+        // register vega and vega-lite with the API
+        vl.register(vega, vegaLite, options);
+    </script>
+    <style></style>
 </head>
 
 <body>
@@ -32,20 +55,14 @@
 
     </header>
 
+
     <main>
-        <h2>visualizations</h2>
-        <h3 class="vis-text">data visualization: bar chart</h3>
-        <div class="vis-container">
-            <svg id="barChart" width="800" height="400">
-            </svg>
-
+        <div class="container">
+            <!-- visualization goes into this div you can create multiple divs and give them IDs -->
+            <div id="view"></div>
+            <div id="view2"></div>
         </div>
-        <h3 class="vis-text">data visualization: creative art</h3>
-        <div class="vis-container">
-
-            <svg id="creative" width="800" height="500">
-            </svg>
-        </div>
+        <script type="module" src="../javascript/visualizations.js"></script>
     </main>
 
     <footer>
@@ -55,6 +72,7 @@
 
     <script src="../javascript/vis.js"></script>
     <script src="../javascript/main.js"></script>
+
 </body>
 
 </html>
