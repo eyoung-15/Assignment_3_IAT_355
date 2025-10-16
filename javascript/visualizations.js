@@ -78,7 +78,7 @@ fetchData().then(async (data) => {
         ],
         "encoding": {
             "x": {
-                "field": "Global_Sales",
+                "field": "Sales",
                 "type": "quantitative",
                 "aggregate": "sum",
                 "title": "Total Global Sales (in millions)"
@@ -101,6 +101,9 @@ fetchData().then(async (data) => {
             "tooltip": [
                 { "field": "Region", "type": "nominal" },
                 { "field": "Platform", "type": "nominal" }
+
+
+
 
             ]
         }
