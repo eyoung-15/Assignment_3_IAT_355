@@ -9,7 +9,7 @@ fetchData().then(async (data) => {
         .data(data)
         .encode(
             vl.x().fieldQ("Global_Sales").aggregate("sum").title("Total Global Sales (in millions)"),
-            vl.y().fieldN("Platform").sort("-x"),
+            vl.y().fieldN("Platform").sort("-x").title("Platform"),
             vl.color().fieldN("Genre").title("Genre"),
             vl.tooltip([
                 vl.fieldN("Genre"),
@@ -18,6 +18,7 @@ fetchData().then(async (data) => {
         )
 
         .width("container")
+        .title("Global Sales by Genre and Platform")
         .height(400)
         .toSpec();
 
@@ -35,6 +36,7 @@ fetchData().then(async (data) => {
 
             ])
         )
+        .title("Sales Over Time by Platform")
         .width("container")
         .height(400)
         .toSpec();
@@ -53,6 +55,7 @@ fetchData().then(async (data) => {
 
             ])
         )
+        .title("Sales Over Time by Genre")
         .width("container")
         .height(400)
         .toSpec();
@@ -61,8 +64,11 @@ fetchData().then(async (data) => {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "description": "An interactive scatterplot comparing regional sales of video games by platform",
         "data": { "url": "../dataset/videogames_wide.csv" },
-        "mark": "point",
+        "mark": {
+            "type": "bar"
+        },
         "width": "container",
+        "title": "Regional Sales vs. Platform",
         "transform": [
             {
                 "fold": ["NA_Sales", "EU_Sales", "JP_Sales", "Other_Sales"],
@@ -79,7 +85,9 @@ fetchData().then(async (data) => {
             },
             "y": {
                 "field": "Platform",
-                "type": "nominal"
+                "type": "nominal",
+                "sort": "-x",
+                "title": "Platform"
 
             },
 
@@ -92,8 +100,7 @@ fetchData().then(async (data) => {
 
             "tooltip": [
                 { "field": "Region", "type": "nominal" },
-                { "field": "Platform", "type": "nominal" },
-                { "field": "Global_Sales", "type": "quantitative" }
+                { "field": "Platform", "type": "nominal" }
 
             ]
         }
@@ -101,24 +108,6 @@ fetchData().then(async (data) => {
 
 
     };
-    // .markBar()
-    // .data(data)
-    // .encode(
-    //     vl.x().fieldO("Year").title("Year"),
-    //     vl.y().fieldQ("Global_Sales").aggregate("sum").title("Total Global Sales (in millions)"),
-    //     vl.text().fieldN("Genre").title("Genre"),
-    //     vl.color().fieldN("Platform").title("Platform"),
-    //     vl.tooltip([
-    //         vl.fieldO("Year"),
-    //         vl.fieldN("Genre"),
-    //         vl.fieldN("Platform"),
-    //         vl.fieldQ("Global_Sales")
-
-    //     ])
-    // )
-    // .width("container")
-    // .height(400)
-    // .toSpec();
 
 
     render("#view", vlSpec);
