@@ -7,6 +7,27 @@ body {
     padding: 0;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+#view,
+#view2,
+#view3,
+#view4,
+#view5 {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+
+}
+
 header {
     background-color: #8bd3fc;
     color: white;
