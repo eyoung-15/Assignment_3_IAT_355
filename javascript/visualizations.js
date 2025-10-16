@@ -108,12 +108,64 @@ fetchData().then(async (data) => {
 
 
     };
+    const vlSpec5 = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "description": "An interactive linechart highlighting Wii Sports among the yearly sales for games",
+        "data": { "url": "../dataset/videogames_wide.csv" },
+        "width": "container",
+        "title": "Yearly Video Game Sales vs. Wii Sports Sales",
+        "transform": [
+            {
+                "aggregate": [{
+                    "op": "sum",
+                    "field": "Global_Sales",
+                    "as": "TotalSales"
+                }],
+                "groupby": ["Year"]
+            }
+
+        ],
+
+        "layer": [
+            {
+                "mark": { "type": "line", "color": "blue" },
+
+
+                "encoding": {
+                    "x": {
+                        "field": "Year",
+                        "type": "ordinal",
+                        "title": "Year"
+                    },
+
+                    "y": {
+                        "field": "TotalSales",
+                        "type": "quantitative",
+                        "title": "Total Global Sales (in millions)"
+
+                    },
+
+
+                    "tooltip": [
+                        { "field": "Year", "type": "ordinal" },
+                        { "field": "TotalSales", "type": "quantitative" }
+                    ]
+                }
+            },
+            {
+                "mark": { "type": "rule", "color": "red", "strokeDash": ["5", "3"] },
+                "encoding": { "x": { "datum": "2006" } }
+            }
+        ],
+
+    };
 
 
     render("#view", vlSpec);
     render("#view2", vlSpec2);
     render("#view3", vlSpec3);
     render("#view4", vlSpec4);
+    render("#view5", vlSpec5);
 });
 
 async function render(viewID, spec) {
